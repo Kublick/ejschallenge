@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose</title>
+</head>
+<body>
+    <h1>Compose</h1>
+
+    <form class="" action="/compose" method="POST">
+    <div class="Title">
+      <label for="titleInput">Title</label>
+      <input type="text" class="form-control" name="newTitle" placeholder="">
+    </div>
+    <div class="newPost">
+        <label for="newPost">Post</label>
+        <textarea class="form-control" rows="5" name="postBody"></textarea>
+      </div>
+      <br>
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+  </form>
+
+</body>
+<footer>
+    <% include partials/footer %>
+
+</footer>
+</html>
+
+
+
