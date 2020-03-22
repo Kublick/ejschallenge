@@ -23,10 +23,12 @@ let posts = [];
 
 // home
 app.get("/", function (req, res) {
-  console.log(posts);
+  const postsShort = "Test";
+  console.log(postShort.substring(0.2));
+  
   res.render("home.ejs", {
     startingContent: homeStartingContent,
-    posts: posts
+    posts: postsShort
   });
 
 });
@@ -61,20 +63,20 @@ app.post("/compose", function (req, res) {
 
 //multiroute
 app.get("/posts/:postName", function (req, res) {
-  
-  const requestedTitle = _.lowerCase(req.params.postName);
-  console.log(requestedTitle);
-  
-  posts.forEach(element => { 
-  element.title 
-  const lowCase = _.lowerCase(element.title);
-  if (lowCase === requestedTitle) {
-    console.log("Success");
-  } else { console.log("no url");}
-  });
-  
-})
 
+  const requestedTitle = _.lowerCase(req.params.postName);
+
+  posts.forEach(function (post) {
+    const lowCase = _.lowerCase(post.title);
+    if (lowCase === requestedTitle) {
+
+      res.render("post.ejs", {
+        tempTitle: post.title,
+        tempContent: post.content
+      });
+    };
+  });
+});
 
 // Server Listener
 app.listen(3000, function () {
